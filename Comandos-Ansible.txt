@@ -1,0 +1,10 @@
+Comandos ad-hoc:
+ansible -i hosts all -m ping -> executa um comando ansible com a opção de arquivo e com o modulo ping para dar um ping nas máquinas cadastradas no arquivo hosts
+
+ansible -i hosts worker-1 -m apt -a "name=cmatrix state=present" --become -> executa um comando de modulo apt para instalação de um software com o sudo (become)
+
+ansible -i hosts worker-1 -m shell -a "ifconfig" -> comando ansible com o module shell para execução de comandos no linux 
+
+ansible -i hosts worker-2 -m copy -a "src=dennis dest=/tmp" -> comando ansible para realizar uma copia de um arquivo para uma pasta
+
+ansible -i hosts worker-1 -m git -a "repo=https://github.com/DennisAJG/project-liferay.git dest=/home/ubuntu/git/ version=HEAD" -b -> comando ansible para clonar um repositorio git para as máquinas
